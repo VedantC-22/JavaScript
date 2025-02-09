@@ -1,5 +1,10 @@
 "user strict"; //treat all js code as newer version
 
+//Primitive
+// 7 types: Number, String, Boolean, null, undefined, BigInt, Symbol
+
+//Reference(non - primitive)
+//Array, Object, Functions
 
 //number => range 2 to power 53
 //bigint
