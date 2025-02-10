@@ -6,6 +6,17 @@
 //Reference(non - primitive)
 //Array, Object, Functions
 
+//stack and heap memory area
+// 1️⃣ Stack Memory (Primitive Data Types)
+// Used for storing primitive values (number, string, boolean, null, undefined, symbol, bigint).
+// Works on LIFO (Last In, First Out) principle.
+// Fast and automatically cleared when the function exits.
+
+// 2️⃣ Heap Memory (Reference Types - Objects, Arrays, Functions)
+// Used for storing objects, arrays, and functions.
+// Objects are stored in Heap, but references (addresses) are stored in Stack.
+// When assigned, the reference (not the actual object) is copied.
+
 //number => range 2 to power 53
 //bigint
 //string => ""
