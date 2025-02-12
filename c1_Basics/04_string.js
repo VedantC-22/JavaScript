@@ -76,9 +76,10 @@ console.log(String.fromCodePoint(9731, 9733, 9842, 0x2f804));
 console.log("-------------raw()-----------------")
 // Create a variable that uses a Windows
 // path without escaping the backslashes:
-let filePath = String.raw`C:\Development\profile\aboutme.html`;
+let rawfilePath = String.raw`C:\Development\profile\aboutme.html`;
 filePath = "C:\Development\profile\aboutme.html"
 console.log(`The file was uploaded from: ${filePath}`);
+console.log(`The file was uploaded from: ${rawfilePath}`);
 // Expected output: "The file was uploaded from: C:\Development\profile\aboutme.html"
 
 

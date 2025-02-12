@@ -53,7 +53,7 @@ console.log("-------splice(startIndex, deletCount, item)--------")
 // If no elements are removed, an empty array is returned.
 
 let splicedArray = myArray.splice(2, 2, 0,8)
-console.log("Spliced array: ", slicedArray)
+console.log("Spliced array: ", splicedArray)
 console.log("A: ", myArray)
 
 // The toSpliced() method of Array instances is the copying version of the splice() method. 

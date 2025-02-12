@@ -1,4 +1,4 @@
-"user strict"; //treat all js code as newer version
+"use strict"; //treat all js code as newer version
 
 //Primitive
 // 7 types: Number, String, Boolean, null, undefined, BigInt, Symbol
@@ -13,9 +13,9 @@
 // Fast and automatically cleared when the function exits.
 
 // 2️⃣ Heap Memory (Reference Types - Objects, Arrays, Functions)
-// Used for storing objects, arrays, and functions.
-// Objects are stored in Heap, but references (addresses) are stored in Stack.
-// When assigned, the reference (not the actual object) is copied.
+// 1.Used for storing objects, arrays, and functions.
+// 2.Objects are stored in Heap, but references (addresses) are stored in Stack.
+// 3.When assigned, the reference (not the actual object) is copied.
 
 //number => range 2 to power 53
 //bigint
@@ -41,7 +41,7 @@ let number = "22"
 let valInNumber = Number(n)
 console.log(typeof age)
 console.log(typeof valInNumber)
-console.log(valInNumber)
+console.log("val ",valInNumber)
 console.log(Number(null))
 console.log(Number(undefined))
 console.log(typeof number)
