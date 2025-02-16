@@ -48,6 +48,8 @@ console.log(typeof number)
 console.log(Number(number))
 
 console.log("----------------------------------\n2.Boolean")
+//falsy values -> false, 0, -0, BigInt On, null, undefined, "", NaN
+// truthy -> "0", [], {}, function(){}
 //true -> 1, false -> 0
 let a = 0 //false
 a = 1 //true

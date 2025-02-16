@@ -92,13 +92,16 @@ console.log(obj4);
 
 //Copying object
 console.log("Coping object")
+//shallow copy
 // The Object.assign() static method copies all enumerable own properties from one or more source objects to a target object.
 // It returns the modified target object.
-const target = { a: 1, b: 2 };
-const source = { b: 4, c: 5 };
+const target = { a: 1, b: 52 };
+const source = { b: {e: 20, f: 56}, c: 5 };
 
 const returnedTarget = Object.assign(target, source);
-
+returnedTarget.b.f = 250
+source.b.f = 500
+console.log(returnedTarget)
 console.log(target);
 // Expected output: Object { a: 1, b: 4, c: 5 }
 
@@ -109,6 +112,11 @@ const newObj = Object.assign({}, source, source2);
 console.log(source);
 console.log(source2);
 console.log(newObj);
+
+// using spread operator - shallow copy
+const newObj2 = {...newObj}
+newObj2.z = 150
+console.log(newObj2)
 
 const users = [
   {
@@ -141,3 +149,4 @@ const course = {
 // const {courseInstructor, price} = course
 const { courseInstructor: instructor, price } = course;
 console.log(instructor);
+
