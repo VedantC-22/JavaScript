@@ -182,7 +182,7 @@ let joinedString = message.reduce(joinStrings);
 console.log(joinedString);
 
 // Output: JavaScript is fun.
-
+console.log("-------Array.from()---------")
 console.log(Array.isArray(message)); //The isArray() method checks whether the passed argument is an array or not.
 console.log(Array.from("Vedant"));
 console.log(Array.from({ name: "Vedant" }));
