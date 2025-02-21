@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Switcher</title>
+    <style>
+        .container{
+           display: flex;
+           flex-direction: column;
+           justify-content: center;
+           align-items: center;
+        }
+
+        .button{
+            display: inline-block;
+            height: 100px;
+            width: 100px;
+            border: 2px solid black;
+        }
+
+        #blue{
+            background-color: blue;
+        }
+
+         #yellow{
+            background-color: yellow;
+        }
+        #white{
+            background-color: white;
+        }
+        #gray{
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Color Switcher</h1>
+        <div class="buttons">
+            <span class="button" id="blue"></span>
+            <span class="button" id="yellow"></span>
+            <span class="button" id="white"></span>
+            <span class="button" id="gray"></span>
+        </div>
+
+    </div>
+
+    <script>
+        const buttons = document.querySelectorAll('.button')
+        buttons.forEach( (item) => {
+            item.addEventListener('click', (e)=>{
+                console.log(e.target)
+                let color = e.target.id
+                console.log(color)
+                document.body.style.backgroundColor = color;
+            })
+        })
+    </script>
+</body>
+</html>

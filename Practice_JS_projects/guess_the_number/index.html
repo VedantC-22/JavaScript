@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the number</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            
+            background-color: #121212;
+            color: #fff;
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            gap: 100px;
+        }
+
+        #user_input{
+            font-size: 24px;
+            width: 200px;
+            height: 50px;
+        }
+
+        .content{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        #btn{
+            font-size: 16px;
+            padding: 7px 9px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            cursor: pointer;
+        }
+
+        .message{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Guess The number</h1>
+        <div class="content">
+            <input id="user_input" type="number" >
+            <input id="btn" type="submit">
+            <div class="message"></div>
+            <div class="prev_guesses"></div>
+            <div class="remaining">10</div>
+            <button id="restartBtn">Restart</button>
+        </div>
+    </div>
+
+    <script>
+        const user_input = document.querySelector('#user_input')
+        const message = document.querySelector('.message')
+        const prev_guesses = document.querySelector('.prev_guesses')
+        const remaining = document.querySelector('.remaining')
+        const submitBtn = document.querySelector('#btn')
+        const restartBtn = document.querySelector('#restartBtn')
+
+        let random = Math.round(Math.random() * 100 + 1)
+
+
+        let playGame = true
+        let guesses = 0
+        let preGuesses = []
+
+        restartBtn.addEventListener('click', (e)=>{
+            setMessage('Restared...')
+            playGame = true
+            user_input.removeAttribute('disabled')
+        })
+
+        submitBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+          console.log(new Date(e.timeStamp))
+            if(playGame){
+                let guess = parseInt(user_input.value);
+                isValidate(guess)
+            }
+        })
+             
+
+        function isValidate(guess){
+            if(random === guess){
+                endGame(`🎉You Won!!`)
+            }else if(isNaN(guess) || guess > 100 || guess < 0){
+                setMessage(` Please enter valid number between 1 to 100 `)
+            }else{
+                if(guess < random){
+                    setMessage(`Number is to low...`)
+                }else{
+                    setMessage(`Number is to high...`)
+                }
+                preGuesses.push(guess)
+                guesses++
+                prev_guesses.innerHTML = preGuesses.join(',')
+                remaining.innerHTML = `${10 - guesses}`
+                if(guesses == 10){
+                    endGame()
+                }
+            }
+        }
+
+        function setMessage(msg){
+            message.innerHTML = msg
+        }
+
+        function endGame(msg){
+            setMessage(msg || `Game ended number was ${random}`)
+            user_input.value = ''
+            user_input.setAttribute('disabled', '')
+            playGame= false
+            preGuesses = []
+            guesses = 0
+            prev_guesses.innerHTML = ``
+            
+        }
+
+
+    </script>
+</body>
+</html>
