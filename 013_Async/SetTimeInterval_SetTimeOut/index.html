@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async</title>
+</head>
+<body>
+    <h1>Async JavaScript</h1>
+    <div class="container">
+        <button id="start" class="btn">Start</button>
+        <button id="stop" class="btn">Stop</button>
+    </div>
+
+    <script>
+        const start = document.getElementById('start')
+        const stop = document.getElementById('stop')
+
+        let intervalId;
+        start.addEventListener('click', () => {
+            intervalId = setInterval(() => {
+                console.log("Vedant", Date.now())
+            }, 1000)
+        })
+
+        stop.addEventListener('click', () => {
+            clearInterval(intervalId)
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Propogation</title>
+
+    <style>
+        .container{
+            padding-inline: 10%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .circle{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        #blue{
+            height: 700px;
+            width: 700px;
+            background-color: blue;
+        }
+
+        #yellow{
+            height: 70%;
+            width: 70%;
+            background-color: yellow;
+        }
+
+        #red{
+            height: 50%;
+            width: 50%;
+            background-color: red;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="circle" id="blue">
+            <div class="circle" id="yellow">
+                <div class="circle" id="red">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        //Event propogation
+        //document.addEventListener(event, function, Capture)
+        //capture	Optional (default = false).
+        //true - The handler is executed in the capturing phase.
+        //false - The handler is executed in the bubbling phase.
+
+        let circles = document.querySelectorAll('.circle')
+        circles.forEach((item) => {
+            item.addEventListener('click', (e) => {
+                //e.stopPropagation()
+                console.log(e.currentTarget)
+                //console.log(e.target)
+            })
+        }, false) //bubbling
+
+        //methods to remove existing elemensts -> remove(), removeChild()
+    </script>
+</body>
+</html>

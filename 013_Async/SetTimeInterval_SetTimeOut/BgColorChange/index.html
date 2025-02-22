@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BgColor Change</title>
+
+    <style>
+        .container{
+            height: 100vh;
+            width: 100vw;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        Click start to change bg color every second.
+        Click stop to set it as bg color.
+        <button id="startbtn" class="btn">Start</button>
+        <button id="stopbtn" class="btn">Stop</button>
+    </div>
+
+
+    <script>
+        
+        const container = document.querySelector('.container')
+        const startBtn = document.getElementById('startbtn')
+        const stopBtn = document.getElementById('stopbtn')
+
+        let intervalId = null;
+        startBtn.addEventListener('click', () => {
+          if(!intervalId){
+          intervalId = setInterval(() => {
+            //let red = Math.round(Math.random() * 255 + 1)
+            //let green = Math.round(Math.random() * 255 + 1)
+            //let blue = Math.round(Math.random() * 255 + 1) 
+
+            //container.style.backgroundColor = `rgb(${red}, ${green}, ${blue}`
+            container.style.backgroundColor = randomColor()
+
+          }, 1000)
+        }
+        })
+
+        const randomColor = function (){
+          const hex = "123456789ABCDEF"
+          let color = "#"
+
+          for(let i = 1; i <= 6 ; i++){
+            color += hex[Math.floor(Math.random() * 16)]
+          }
+          console.log(color)
+          return color;
+        }
+
+        stopBtn.addEventListener('click', () => {
+          clearInterval(intervalId)
+          intervalId = null
+        })
+
+    </script>
+</body>
+</html>

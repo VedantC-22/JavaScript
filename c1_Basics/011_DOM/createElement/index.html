@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating Element</title>
+</head>
+<body>
+    <h1>Creating Element</h1>
+    <div class="container">
+        <ul class="languages">
+            <li class="item">Java</li>
+        </ul>
+    </div>
+    
+
+    <script>
+        const container = document.querySelector('.container');
+        const heading = document.createElement('h3')
+        heading.innerText = 'JavaScript'
+        heading.id = 'js'
+        heading.setAttribute('data-set', 1)
+        heading.classList.add('secondary-heading')
+
+        container.append(heading)
+
+        function addLanguage(langName){
+            const li  = document.createElement('li')
+            li.classList.add('item')
+            li.appendChild(document.createTextNode(langName))
+            document.querySelector('.languages').appendChild(li)
+        }
+
+        addLanguage('C++')
+        addLanguage('Python')
+
+        //edit
+        const sencondLang = document.querySelector('li:nth-child(2)')
+        <!-- sencondLang.innerHTML = 'CPP' -->
+        const newli = document.createElement('li')
+        newli.textContent = 'CPP'
+        sencondLang.replaceWith(newli)
+
+        const firstLang = document.querySelector('li:first-child')
+        firstLang.outerHTML = '<li class="item">Lengendary Java</li>'
+
+        //remove
+        const lastLang = document.querySelector('li:last-child')
+        lastLang.remove()
+    </script>
+</body>
+</html>
