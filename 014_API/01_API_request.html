@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Request | AJAX</title>
+    <style>
+        #img{
+            height: 300px;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+  <h1>AJAX</h1>
+  <p>Asynchronous JavaScript and XML (Ajax, or AJAX) is a web development technique in which a web app fetches content from the server by making asynchronous HTTP requests, and uses the new content to update the relevant parts of the page without requiring a full page load. This can make the page more responsive, because only the parts that need to be updated are requested.
+
+    Ajax can be used to create single-page apps, in which the entire web app consists of a single document, which uses Ajax to update its content as needed.
+    
+    Initially Ajax was implemented using the XMLHttpRequest interface, but the fetch() API is more suitable for modern web applications: it is more powerful, more flexible, and integrates better with fundamental web app technologies such as service workers. Modern web frameworks also provide abstractions for Ajax.</p>
+  <pre>
+  Holds the status of the XMLHttpRequest.
+  0: request not initialized
+  1: server connection established
+  2: request received
+  3: processing request
+  4: request finished and response is ready`
+  </pre>
+  <div class="container">
+    <img src="" alt="" id="img">
+  </div>
+  <script>
+    const img = document.getElementById('img')
+    const requestUrl = 'https://randomuser.me/api/?gender=female'
+    const xhr = new XMLHttpRequest()
+    xhr.open('GET', requestUrl)
+    xhr.onreadystatechange = function (){
+        console.log(xhr.readyState)
+        if(xhr.readyState === 4){
+            const data = JSON.parse(this.responseText);
+            console.log(data)
+            console.log(data.results[0].picture.thumbnail)
+            data.results.forEach((obj) =>{
+                img.src = obj.picture.large
+            })
+            
+        }
+    }
+    console.log(xhr.readyState)
+    xhr.send()
+
+  </script>
+</body>
+</html>
