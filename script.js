@@ -1,3 +1,3 @@
 console.log("Hello Freinds")
 console.log("Hello Jenkins")
-console.l("V2")
+console.log("V2")
